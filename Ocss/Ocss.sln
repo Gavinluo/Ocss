@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocss", "Ocss.csproj", "{796D5A9E-D7F5-445C-ADD6-EA69A3F9425E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{796D5A9E-D7F5-445C-ADD6-EA69A3F9425E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796D5A9E-D7F5-445C-ADD6-EA69A3F9425E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796D5A9E-D7F5-445C-ADD6-EA69A3F9425E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796D5A9E-D7F5-445C-ADD6-EA69A3F9425E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D804F62F-2C4F-45D1-9653-1632B742AFD2}
+	EndGlobalSection
+EndGlobal
