@@ -254,3 +254,4 @@ txtlog/
 !Quantum.FrameWorkCore/Quantum.FrameWorkCore/Log
 CommonBuild/
 logfile/
+*.csv

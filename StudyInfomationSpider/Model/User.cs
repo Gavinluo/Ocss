@@ -19,6 +19,7 @@ namespace StudyInfomationSpider.Model
         public string NickName { set; get; }
         public Uri MoocUrl { set; get; }
         public List<Course> Courses { set; get; }
+
     }
 
 
