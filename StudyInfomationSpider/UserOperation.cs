@@ -13,6 +13,7 @@ namespace StudyInfomationSpider
     /// </summary>
     internal class UserOperation
     {
+        public string[] COURSES = new string[6] { "C#面向对象编程", "用C#实现封装", "C#开发轻松入门", "初识HTML(5)+CSS(3)-2020升级版", "JavaScript入门篇", "JavaScript进阶篇" };
         public List<User> GetUsersFromCSV()
         {
             List<User> users = new List<User>();
@@ -31,7 +32,6 @@ namespace StudyInfomationSpider
                     }
                     try
                     {
-                        Uri uri = new Uri(rows[4]);
                         User u = new User
                         {
                             NickName = rows[0],
@@ -57,15 +57,30 @@ namespace StudyInfomationSpider
 
             using (StreamWriter sw = new StreamWriter("StudyResult.csv", false, System.Text.Encoding.UTF8))
             {
-                sw.WriteLine("学号,昵称,姓名,慕课地址,课程1,进度1,课程2,进度2,课程3,进度3,课程4,进度4,课程5,进度5,课程6,进度6");
+                sw.Write("学号,昵称,姓名,慕课地址");
+                foreach (var item in COURSES)
+                {
+                    sw.Write($",{item},学习进度,代码练习");
+                }
+
                 foreach (var s in users)
                 {
                     sw.Write($"{s.ID},{s.NickName},{s.Name},{s.MoocUrl}");
-
-                    foreach (var item in s.Courses.OrderBy(a => a.CourseName))
+                    foreach (var calcCourse in COURSES)
                     {
-                        sw.Write($",{item.CourseName},{item.StudyPercent}");
+                        foreach (var userCourse in s.Courses)
+                        {
+                            if (userCourse.CourseName == calcCourse)
+                            {
+                                sw.Write($",{userCourse.CourseName},{userCourse.StudyPercent},{userCourse.TestCodes}");
+                            }
+                        }
                     }
+
+                    /*foreach (var item in s.Courses.OrderBy(a => a.CourseName))
+                    {
+                        sw.Write($",{item.CourseName},{item.StudyPercent},{item.TestCodes}");
+                    }*/
                     sw.WriteLine();
                 }
             }

@@ -13,6 +13,7 @@ namespace StudyInfomationSpider.Spider
     {
         public void CaptureInformation(List<User> users)
         {
+            #region 并行计算
             /* 性能优化可以使用下面的并行方式
           var usersArray = users.ToArray();
           Parallel.For(0, usersArray.Length - 1, i =>
@@ -39,11 +40,13 @@ namespace StudyInfomationSpider.Spider
                   }
               }
           });*/
+            #endregion
             foreach (var item in users)
             {
                 var web = new HtmlWeb();
                 var doc = web.Load(item.MoocUrl);
                 var htmlnode = doc?.DocumentNode?.SelectNodes(@"//*[@id=""main""]/div[2]/div[2]/div[2]/div/div[1]/div[1]/div/ul/li");
+                //*[@id="main"]/div[1]/div[1]/div[3]/div[3]/span[2]
                 if (htmlnode != null)
                 {
                     foreach (var node in htmlnode)
