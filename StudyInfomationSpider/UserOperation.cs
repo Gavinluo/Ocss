@@ -68,19 +68,21 @@ namespace StudyInfomationSpider
                     sw.Write($"{s.ID},{s.NickName},{s.Name},{s.MoocUrl}");
                     foreach (var calcCourse in COURSES)
                     {
+                        bool hasFind = false;
                         foreach (var userCourse in s.Courses)
                         {
                             if (userCourse.CourseName == calcCourse)
                             {
+                                hasFind = true;
                                 sw.Write($",{userCourse.CourseName},{userCourse.StudyPercent},{userCourse.TestCodes}");
                             }
                         }
+                        if (!hasFind)
+                        {
+                            sw.Write(",无,0,0");
+                        }
                     }
 
-                    /*foreach (var item in s.Courses.OrderBy(a => a.CourseName))
-                    {
-                        sw.Write($",{item.CourseName},{item.StudyPercent},{item.TestCodes}");
-                    }*/
                     sw.WriteLine();
                 }
             }

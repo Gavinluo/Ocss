@@ -14,13 +14,18 @@ namespace Ocss.Model
         public static void ShowAllCourse(List<Course> allCourse)
         {
             Console.Clear();
-            Console.WriteLine("课程ID     课程名称");
+            Console.WriteLine("课程ID\t\t课程名称");
             foreach (var item in allCourse)
             {
-                Console.WriteLine($"{item.ID}     {item.Name}");
+                Console.WriteLine($"{item.ID}\t\t{item.Name}");
             }
 
         }
+
+        /// <summary>
+        /// Todo... 从文件中读数据
+        /// </summary>
+        /// <returns></returns>
         public static List<Course> ReadFromLocalFile()
         {
             var allText = File.ReadAllText("AllCourse.json");
@@ -28,6 +33,10 @@ namespace Ocss.Model
             return null;
         }
 
+        /// <summary>
+        /// Todo... 写数据到文件中
+        /// </summary>
+        /// <param name="allCourse"></param>
         public static void SaveToLocalFile(List<Course> allCourse)
         {
 
