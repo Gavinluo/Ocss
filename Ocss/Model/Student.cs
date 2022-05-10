@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ocss.Model
+namespace Ocss.Models
 {
-    internal class Student
+    partial class Student
     {
-        public string Name { set; get; }
-        public string ID { set; get; }
-        public List<Course> SelectCourse { set; get; }
+        public static void ShowAllStudent(List<Student> allStudent)
+        {
+            Console.Clear();
+            Console.WriteLine("学生ID\t\t学生姓名");
+            foreach (var item in allStudent)
+            {
+                Console.WriteLine($"{item.StudentId}\t\t{item.StudentName}");
+            }
+            Console.WriteLine("查看完成，按任意键返回");
+            Console.ReadKey();
+        }
     }
 }

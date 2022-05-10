@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Ocss.Model
+namespace Ocss.Models
 {
-    internal class Course
+    partial class Course
     {
-        public string Name { set; get; }
-        public string ID { set; get; }
 
         public static void ShowAllCourse(List<Course> allCourse)
         {
@@ -17,9 +15,10 @@ namespace Ocss.Model
             Console.WriteLine("课程ID\t\t课程名称");
             foreach (var item in allCourse)
             {
-                Console.WriteLine($"{item.ID}\t\t{item.Name}");
+                Console.WriteLine($"{item.CourseId}\t\t{item.CourseName}");
             }
-
+            Console.WriteLine("查看完成，按任意键返回");
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -28,9 +27,13 @@ namespace Ocss.Model
         /// <returns></returns>
         public static List<Course> ReadFromLocalFile()
         {
-            var allText = File.ReadAllText("AllCourse.json");
-            JsonConvert.DeserializeObject<List<Course>>(allText);
-            return null;
+            if (File.Exists("AllCourse.json"))
+            {
+                var allText = File.ReadAllText("AllCourse.json");
+                var list = JsonConvert.DeserializeObject<List<Course>>(allText);
+                return list;
+            }
+            return new List<Course>();
         }
 
         /// <summary>
@@ -39,7 +42,12 @@ namespace Ocss.Model
         /// <param name="allCourse"></param>
         public static void SaveToLocalFile(List<Course> allCourse)
         {
-
+            if (File.Exists("AllCourse.json"))
+            {
+                File.Delete("AllCourse.json");
+            }
+            var jsonText = JsonConvert.SerializeObject(allCourse);
+            File.WriteAllText("AllCourse.json", jsonText);
         }
     }
 }

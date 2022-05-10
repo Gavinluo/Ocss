@@ -17,6 +17,7 @@ namespace StudyInfomationSpider
         public List<User> GetUsersFromCSV()
         {
             List<User> users = new List<User>();
+            List<string> errorUrlUsers = new List<string>();
             using (TextFieldParser textFieldParser = new TextFieldParser(@"慕课网注册信息（收集结果）-慕课网注册信息.csv"))
             {
                 textFieldParser.TextFieldType = FieldType.Delimited;
@@ -32,6 +33,13 @@ namespace StudyInfomationSpider
                     }
                     try
                     {
+                        //校验用户的慕课地址
+                        if (!rows[4].StartsWith("https://www.imooc.com/u/")
+                            || !rows[4].EndsWith("/courses"))
+                        {
+                            errorUrlUsers.Add(rows[2]);
+                            continue;
+                        }
                         User u = new User
                         {
                             NickName = rows[0],
@@ -40,15 +48,18 @@ namespace StudyInfomationSpider
                             MoocUrl = new Uri(rows[4]),
                         };
                         users.Add(u);
+
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine(e.Message + e.StackTrace);
-                        Console.WriteLine($"信息错误：NickName:{rows[0]},Name:{rows[2]},ID:{rows[3]},MoocUri:{rows[4]}");
+
                         continue;
                     }
                 }
             }
+
+            Console.WriteLine($"这些同学地址不正确：{string.Join(",", errorUrlUsers)}");
             return users;
         }
 
@@ -62,6 +73,7 @@ namespace StudyInfomationSpider
                 {
                     sw.Write($",{item},学习进度,代码练习");
                 }
+                sw.WriteLine();
 
                 foreach (var s in users)
                 {
