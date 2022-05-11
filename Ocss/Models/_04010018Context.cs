@@ -28,7 +28,7 @@ namespace Ocss.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                //warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseMySql("persist security info=True;data source=rm-bp18b613kv75bjlyl1o.mysql.rds.aliyuncs.com;port=3306;initial catalog=04010018;user id=student_19;password=student_19;character set=utf8;allow zero datetime=true;convert zero datetime=true;pooling=true;maximumpoolsize=3000", x => x.ServerVersion("8.0.25-mysql"));
             }
         }

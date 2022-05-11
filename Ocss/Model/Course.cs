@@ -17,8 +17,7 @@ namespace Ocss.Models
             {
                 Console.WriteLine($"{item.CourseId}\t\t{item.CourseName}");
             }
-            Console.WriteLine("查看完成，按任意键返回");
-            Console.ReadKey();
+
         }
 
         /// <summary>

@@ -14,8 +14,6 @@ namespace Ocss.Models
             {
                 Console.WriteLine($"{item.StudentId}\t\t{item.StudentName}");
             }
-            Console.WriteLine("查看完成，按任意键返回");
-            Console.ReadKey();
         }
     }
 }

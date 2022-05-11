@@ -10,7 +10,11 @@ namespace Ocss
     {
         static void Main(string[] args)
         {
+            OcssUI();
+        }
 
+        public static void OcssUI()
+        {
             List<Course> allCoures = Course.ReadFromLocalFile();
             Menu menu = new Menu();
             while (true)
@@ -33,7 +37,8 @@ namespace Ocss
                         break;
                     case ConsoleKey.D2:
                         Course.ShowAllCourse(allCoures);
-
+                        Console.WriteLine("查看完成，按任意键返回");
+                        Console.ReadKey();
                         break;
                     case ConsoleKey.D3:
                         break;
@@ -57,9 +62,25 @@ namespace Ocss
                         {
                             var students = context.Student.ToList();
                             Student.ShowAllStudent(students);
+                            Console.WriteLine("查看完成，按任意键返回");
+                            Console.ReadKey();
+                        }
+                        break;
+                    //删除学生
+                    case ConsoleKey.D6:
+
+                        using (_04010018Context context = new _04010018Context())
+                        {
+                            var students = context.Student.ToList();
+                            Student.ShowAllStudent(students);
+                            Console.WriteLine("请输入要删除的学号：");
+                            var studentId = Console.ReadLine();
+                            //context.Student
+                            Console.ReadKey();
                         }
                         break;
                     case ConsoleKey.D0:
+
                         return;
                     default:
                         break;
