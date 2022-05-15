@@ -13,7 +13,7 @@ namespace StudyInfomationSpider
     /// </summary>
     internal class UserOperation
     {
-        public string[] COURSES = new string[6] { "C#面向对象编程", "用C#实现封装", "C#开发轻松入门", "初识HTML(5)+CSS(3)-2020升级版", "JavaScript入门篇", "JavaScript进阶篇" };
+        public string[] COURSES = new string[4] { "C#面向对象编程", "用C#实现封装", "C#开发轻松入门", "初识HTML(5)+CSS(3)-2020升级版" };
         public List<User> GetUsersFromCSV()
         {
             List<User> users = new List<User>();

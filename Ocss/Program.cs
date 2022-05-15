@@ -25,6 +25,7 @@ namespace Ocss
                     {
                         //新增课程
                         case ConsoleKey.D1:
+                        case ConsoleKey.NumPad1:
 
                             var course = new Course();
                             Console.WriteLine("请输入课程名称:");
@@ -79,7 +80,7 @@ namespace Ocss
                             }
                             break;
                         //删除学生
-                        case ConsoleKey.D6:
+                        case ConsoleKey.NumPad1:
 
                             using (_04010018Context context = new _04010018Context())
                             {
