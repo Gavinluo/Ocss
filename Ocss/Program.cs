@@ -79,22 +79,6 @@ namespace Ocss
                                 Console.ReadKey();
                             }
                             break;
-                        //删除学生
-                        case ConsoleKey.NumPad1:
-
-                            using (_04010018Context context = new _04010018Context())
-                            {
-                                var students = context.Student.ToList();
-                                Student.ShowAllStudent(students);
-                                Console.WriteLine("请输入要删除的学号：");
-                                var studentId = Console.ReadLine();
-                                //context.Student
-                                Console.ReadKey();
-                            }
-                            break;
-                        case ConsoleKey.D0:
-
-                            return;
                         default:
                             break;
                     }
