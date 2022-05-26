@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Ocss.Web.Models;
 using System;
 
 namespace Ocss.Web.Controllers
@@ -9,16 +12,24 @@ namespace Ocss.Web.Controllers
         {
             return View();
         }
-
-        public IActionResult LoginUser(string username, string pwd)
+        public IActionResult LoginUser(LoginModel model)
         {
-            if (username == "admin" && pwd == "admin")
+            if (model.UserName == "admin" && model.Password == "admin")
             {
                 return Redirect("/Student/List");
             }
             ViewData["error"] = "登录密码错误";
             return View("ShowLogin");
         }
+        /*  public IActionResult LoginUser(string username, string pwd)
+          {
+              if (username == "admin" && pwd == "admin")
+              {
+                  return Redirect("/Student/List");
+              }
+              ViewData["error"] = "登录密码错误";
+              return View("ShowLogin");
+          }*/
 
     }
 }
