@@ -6,6 +6,7 @@ using System;
 
 namespace Ocss.Web.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         public IActionResult ShowLogin()

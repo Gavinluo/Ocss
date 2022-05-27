@@ -13,7 +13,6 @@ namespace Ocss.Web.Controllers
         }
         public IActionResult List()
         {
-            ViewData["LoginUser"] = HttpContext.Session.GetString("LoginUser");
             return View();
         }
     }
