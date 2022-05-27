@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,10 @@ namespace Ocss.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //开启Session
+            services.AddSession();
+            //添加一个单例的HttpContext上下文访问器
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +40,10 @@ namespace Ocss.Web
             app.UseRouting();
 
             app.UseAuthorization();
+            //开启Cookie
             app.UseCookiePolicy();
+            //开启Session
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Ocss.Web.Controllers
 {
 
-    public class StudentController : Controller
+    public class CourseController : Controller
     {
         public IActionResult Edit(string id)
         {
