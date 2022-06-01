@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Ocss.Models
+namespace Ocss.Service.Models
 {
     public partial class _04010018Context : DbContext
     {

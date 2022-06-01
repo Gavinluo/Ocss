@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Ocss.Service.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Ocss.Web.Controllers
 {
@@ -13,7 +16,12 @@ namespace Ocss.Web.Controllers
         }
         public IActionResult List()
         {
-            return View();
+            var studentList = new List<Student>();
+            using (var dbContext = new _04010018Context())
+            {
+                studentList = dbContext.Student.ToList();
+            }
+            return View(studentList);
         }
     }
 }

@@ -1,7 +1,6 @@
-﻿using Ocss.Models;
+﻿using Ocss.Service.Models;
 using Ocss.UI;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Ocss
@@ -58,7 +57,7 @@ namespace Ocss
                         case ConsoleKey.D4:
                             using (_04010018Context context = new _04010018Context())
                             {
-                                Models.Student student = new Models.Student();
+                                Student student = new Student();
                                 Console.WriteLine("请输入学生学号:");
                                 student.StudentId = Console.ReadLine();
                                 Console.WriteLine("请输入学生姓名:");

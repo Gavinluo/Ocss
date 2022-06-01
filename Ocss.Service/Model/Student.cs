@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ocss.Models
+namespace Ocss.Service.Models
 {
     partial class Student
     {

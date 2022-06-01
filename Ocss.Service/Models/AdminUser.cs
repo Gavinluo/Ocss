@@ -5,12 +5,12 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Ocss.Models
+namespace Ocss.Service.Models
 {
-    public partial class StudentCourse
+    public partial class AdminUser
     {
-        public string StudentId { get; set; }
-        public string CourseId { get; set; }
+        public string AdminId { get; set; }
+        public string AdminPassword { get; set; }
         public DateTime? CreatedDate { get; set; }
     }
 }

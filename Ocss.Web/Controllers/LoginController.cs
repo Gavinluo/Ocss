@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Ocss.Web.Models;
+using Ocss.Service.Models;
+using Ocss.Web.DataTransferModel;
 using System;
+using System.Linq;
 
 namespace Ocss.Web.Controllers
 {
@@ -11,6 +13,7 @@ namespace Ocss.Web.Controllers
     {
         public IActionResult ShowLogin()
         {
+
             if (String.IsNullOrEmpty(HttpContext.Session.GetString("Date")))
             {
                 HttpContext.Session.SetString("Date", DateTime.Now.ToString());

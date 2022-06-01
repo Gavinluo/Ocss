@@ -1,3 +1,6 @@
+@using Ocss.Service.Models
+@model List<Student>
+
 <section role="main" class="content-body">
     <header class="page-header">
         <h2>这里是学生页面</h2>
@@ -36,37 +39,22 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
-                            <td class="actions">
-                                <a href="@Url.Action("Edit")?Id=123"><i class="fa fa-pencil"></i></a>
-                                <a href="@Url.Action("Delete")?Id=123" class="delete-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>fat</td>
-                            <td class="actions">
-                                <a href="@Url.Action("Edit")?Id=123"><i class="fa fa-pencil"></i></a>
-                                <a href="@Url.Action("Delete")?Id=123" class="delete-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>twitter</td>
-                            <td class="actions">
-                                <a href="@Url.Action("Edit")?Id=123"><i class="fa fa-pencil"></i></a>
-                                <a href="@Url.Action("Delete")?Id=123" class="delete-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
+
+                        @for (var i = 0; i < Model.Count(); i++)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@Model[i].StudentId</td>
+                                <td>@Model[i].StudentName</td>
+                                <td>mdo</td>
+                                <td class="actions">
+                                    <a href="@Url.Action("Edit")?Id=@Model[i].StudentId"><i class="fa fa-pencil"></i></a>
+                                    <a href="@Url.Action("Delete")?Id=123" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
