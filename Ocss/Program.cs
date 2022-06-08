@@ -5,11 +5,13 @@ using System.Linq;
 
 namespace Ocss
 {
-    internal class Program
+     class Program
     {
         static void Main(string[] args)
         {
-            OcssUI();
+           
+
+            // OcssUI();
         }
 
         public static void OcssUI()

@@ -10,16 +10,40 @@ namespace Ocss.Web.Controllers
 
     public class StudentController : Controller
     {
+        public IActionResult Save(Student stu)
+        {
+            using (var dbContext = new _04010018Context())
+            {
+                var dbStudent = dbContext.Student.Find(stu.StudentId);
+                if (dbStudent !=null)
+                {
+                    dbStudent.StudentName = stu.StudentName;
+                    ViewData["Msg"] = "修改成功";
+                }
+                else
+                {
+                    dbContext.Student.Add(stu);
+                    ViewData["Msg"] = "新建成功";
+                }
+                dbContext.SaveChanges();
+                return View("List", dbContext.Student.ToList());
+            }
+
+        }
         public IActionResult Edit(string id)
         {
-            return View();
+            using (var dbContext = new _04010018Context())
+            {
+                return View(dbContext.Student.Find(id));
+            }
+           
         }
         public IActionResult List()
         {
             var studentList = new List<Student>();
             using (var dbContext = new _04010018Context())
             {
-                studentList = dbContext.Student.ToList();
+                studentList = dbContext.Student.Skip(10).Take(20).ToList();
             }
             return View(studentList);
         }

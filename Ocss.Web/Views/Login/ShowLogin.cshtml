@@ -48,7 +48,7 @@
             <div class="panel-title-sign mt-xl text-right">
             </div>
             <div class="panel-body">
-                <form action="/Login/LoginUser" method="post">
+                <form action="@Url.Action("LoginUser","Login")" method="post">
                     <div class="form-group mb-lg">
                         <label>Username</label>
                         <div class="input-group input-group-icon">
@@ -83,11 +83,6 @@
                             <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign In</button>
                         </div>
                     </div>
-
-
-
-
-
                 </form>
             </div>
         </div>

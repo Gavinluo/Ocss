@@ -3,7 +3,7 @@
 
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>这里是学生页面</h2>
+        <h2>学生管理</h2>
 
         <div class="right-wrapper pull-right">
             <ol class="breadcrumbs">
@@ -12,7 +12,7 @@
                         <i class="fa fa-home"></i>
                     </a>
                 </li>
-                <li><span>这里是学生页面</span></li>
+                <li><span>学生列表</span></li>
             </ol>
 
             <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -25,10 +25,21 @@
                 <a href="#" class="fa fa-times"></a>
             </div>
 
-            <h2 class="panel-title">Actions</h2>
+            <h2 class="panel-title"><button type="button" onclick="window.location.href='@Url.Action("Edit")'"  class="mb-xs mt-xs mr-xs btn btn-primary">新建</button></h2>
         </header>
+        @{
+            if (ViewData["Msg"] != null)
+            {
+                <div class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<strong>@ViewData["Msg"]</strong> 
+		        </div>
+            }
+        }
+        
         <div class="panel-body">
             <div class="table-responsive">
+                
                 <table class="table mb-none">
                     <thead>
                         <tr>
