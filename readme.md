@@ -15,7 +15,7 @@ https://visualstudio.microsoft.com/zh-hans/vs/   下载 Community 版本，安�
 
 
 ### 通过 生成 DbContext对象
-VS菜单中的 工具->NuGet包管理器 ->管理解决方案的Nuget程序包 ，安装以下内容
+VS菜单中的 工具->NuGet包管理器 ->程序包管理器控制台，安装以下内容
 
 - 在控制台中输入以下命令并按Enter键：`Install-Package Microsoft.EntityFrameworkCore -Version 3.1.25`
 -  等待安装完成后，输入以下命令并按Enter键：`Install-Package Microsoft.EntityFrameworkCore.Tools -Version 3.1.25`
