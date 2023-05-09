@@ -16,9 +16,11 @@ https://visualstudio.microsoft.com/zh-hans/vs/   下载 Community 版本，安�
 
 ### 通过 生成 DbContext对象
 VS菜单中的 工具->NuGet包管理器 ->管理解决方案的Nuget程序包 ，安装以下内容
-Microsoft.EntityFrameworkCore  3.1.25
-Microsoft.EntityFrameworkCore.Tools   3.1.25
-Pomelo.EntityFrameworkCore.MySql   3.2.7
+
+- 在控制台中输入以下命令并按Enter键：`Install-Package Microsoft.EntityFrameworkCore -Version 3.1.25`
+-  等待安装完成后，输入以下命令并按Enter键：`Install-Package Microsoft.EntityFrameworkCore.Tools -Version 3.1.25`
+- 等待安装完成后，输入以下命令并按Enter键：`Install-Package Pomelo.EntityFrameworkCore.MySql -Version 3.2.7`
+- 等待安装完成后，您就可以开始使用这些包了。
 
 VS菜单中的 工具->NuGet包管理器 ->程序包管理器控制台 输入一下命令
 ```C#
