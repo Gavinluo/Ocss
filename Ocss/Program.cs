@@ -5,14 +5,108 @@ using System.Linq;
 
 namespace Ocss
 {
-     class Program
+    class Program
     {
         static void Main(string[] args)
         {
-           
+            string[] menuItems = {
+            "新建学生",
+            "修改学生",
+            "删除学生"
+        };
+
+            int currentIndex = 0;
+            while (true)
+            {
+                Console.Clear();
+                for (int i = 0; i < menuItems.Length; i++)
+                {
+                    if (currentIndex == i)
+                    {
+                        Console.Write("-> ");
+                        Console.BackgroundColor = ConsoleColor.Gray;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                    }
+                    Console.WriteLine(menuItems[i]);
+                    Console.ResetColor();
+                }
+
+                ConsoleKeyInfo cki = Console.ReadKey();
+
+                if (cki.Key == ConsoleKey.DownArrow)
+                {
+                    if (currentIndex + 1 < menuItems.Length)
+                    {
+                        currentIndex++;
+                    }
+                }
+                else if (cki.Key == ConsoleKey.UpArrow)
+                {
+                    if (currentIndex - 1 >= 0)
+                    {
+                        currentIndex--;
+                    }
+                }
+                else if (cki.Key == ConsoleKey.Enter)
+                {
+                    switch (currentIndex)
+                    {
+                        case 0:
+                            // 新建学生的代码
+                            Console.WriteLine("新建学生被选中");
+                            Console.ReadKey();
+                            break;
+                        case 1:
+                            // 修改学生的代码
+                            Console.WriteLine("修改学生被选中");
+                            Console.ReadKey();
+                            break;
+                        case 2:
+                            // 删除学生的代码
+                            Console.WriteLine("删除学生被选中");
+                            Console.ReadKey();
+                            break;
+                    }
+                }
+            }
+
+            /*char inputKey = 'o';
+            while (true)
+            {
+                Console.Clear();
+                switch (inputKey)
+                {
+                    case 'o':
+                        Console.WriteLine("1.课程新增");
+                        Console.WriteLine("2.课程修改");
+                        Console.WriteLine("3.退出");
+                        inputKey = Console.ReadKey().KeyChar;
+                        break;
+                    case '1':
+                        Console.WriteLine("请输入课程ID：");
+                        var id = Console.ReadLine();
+                        Console.WriteLine("请输入课程名称：");
+                        var name = Console.ReadLine();
+                        // 操作数据库一系列代码操作.....
+                        Console.WriteLine("保存成功! 按任意键继续");
+                        Console.ReadKey();
+                        inputKey = 'o';
+                        break;
+                    default:
+                        Console.WriteLine("输入的菜单不存在");
+                        inputKey = 'o';
+                        break;
+                }
+
+
+
+
+            }*/
 
             // OcssUI();
         }
+
+
 
         public static void OcssUI()
         {
