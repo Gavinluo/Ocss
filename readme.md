@@ -31,3 +31,7 @@ Scaffold-DbContext "persist security info=True;data source=rm-8vbrx1u4mnqb94o2h2
 ```
 
 会在你的解决方案中自动生成 DatabaseModels目录和类文件
+
+如果你使用的是 JetBrain Rider 开发工具，DbContext对象生成使用
+```dotnet ef dbcontext scaffold "Server=数据库地址;Integrated Security=true;" Pomelo.EntityFrameworkCore.MySql -c MyDBContext```
+参考：https://blog.jetbrains.com/dotnet/2017/08/09/running-entity-framework-core-commands-rider/
