@@ -1,13 +1,13 @@
 ﻿using HtmlAgilityPack;
 using Microsoft.VisualBasic.FileIO;
 using StudyInfomationSpider.Model;
+using StudyInfomationSpider.Spider;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
-using System.Linq;
-using StudyInfomationSpider.Spider;
 
 namespace StudyInfomationSpider
 {

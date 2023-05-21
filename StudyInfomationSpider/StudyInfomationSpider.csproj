@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>net5.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -10,9 +10,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="慕课网注册信息.csv">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
 		<None Update="慕课网注册信息（收集结果）-慕课网注册信息.csv">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>

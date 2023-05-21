@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Ocss.Service.Models;
 using Ocss.Web.DataTransferModel;
 using System;
@@ -11,6 +12,9 @@ namespace Ocss.Web.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
+        public LoginController()
+        {
+        }
         public IActionResult ShowLogin()
         {
 

@@ -47,9 +47,16 @@ namespace Ocss.Web
             app.UseSession();
             app.UseEndpoints(endpoints =>
             {
+                // 第一个路由
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=ShowLogin}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                // 第二个路由
+                endpoints.MapControllerRoute(
+                    name: "blog",
+                    pattern: "blog/{*article}",
+                    defaults: new { controller = "Blog", action = "Article" });
             });
         }
     }

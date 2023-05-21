@@ -12,7 +12,6 @@ namespace StudyInfomationSpider.Model
         public string CourseName { get; set; }
         public string UserID { set; get; }
         public int StudyPercent { get; set; }
-        public int TestCodes { set; get; }
         public int NoteCount { set; get; }
 
     }

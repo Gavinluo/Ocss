@@ -32,26 +32,25 @@ namespace StudyInfomationSpider
 
             }
         }
-        private static List<Course> ParseHtmlByRegex(string htmlData)
+        /// <summary>
+        /// 这个代码会从网页的HTML中获取每个课程的标题和学习进度。正则表达式模式<p class=""title"">(.*?)<\/p>.*?<span>已学(.*?)<\/span>用来匹配课程标题和学习进度。.*?是一个非贪婪匹配，它会尽可能少地匹配字符。        另外，我使用了RegexOptions.Singleline选项，这使得.字符可以匹配任何字符，包括换行符。这是因为在HTML中，课程标题和学习进度可能不在同一行。请注意，这个代码可能需要根据实际的HTML结构进行调整。如果这个正则表达式无法正确匹配，你可能需要修改它以适应实际的HTML结构。
+        /// </summary>
+        /// <param name="pageContents"></param>
+        /// <returns></returns>
+        private static List<Course> ParseHtmlByRegex(string pageContents)
         {
             List<Course> courses = new List<Course>();
+            // Pattern for course title and progress
+            var pattern = @"<p class=""title"">(.*?)<\/p>.*?<span>已学(.*?)<\/span>";
+            var regex = new Regex(pattern, RegexOptions.Singleline);
+            var matches = regex.Matches(pageContents);
 
-            var regStr = @"<div class=""course-list-cont"">[\S\s]*?</div>[\S\s]*?</div>";
-            MatchCollection matchs = new Regex(regStr).Matches(htmlData);
-            foreach (var item in matchs)
+            foreach (Match match in matches)
             {
-                var courseHtml = item.ToString();
-                //Match CourseName
-                var regStrCourseName = @"<a href=""/learn/[\S]*?"" target=""_blank"">[\S]*?</a>";
-                var name = new Regex(regStrCourseName).Match(courseHtml);
-                if (name != null && name.Success)
-                {
-                    var cutStr = name.Value.Substring(name.Value.IndexOf(">") + 1);
-                    cutStr = cutStr.Substring(0, cutStr.IndexOf("</a>"));
-                    Course course = new Course();
-                    course.CourseName = cutStr;
-                    courses.Add(course);
-                }
+                var title = match.Groups[1].Value;
+                var progress = match.Groups[2].Value;
+
+                Console.WriteLine($"课程名: {title}, 学习进度: {progress}");
             }
             return courses;
         }

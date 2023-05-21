@@ -13,7 +13,7 @@ namespace StudyInfomationSpider
     /// </summary>
     internal class UserOperation
     {
-        public string[] COURSES = new string[4] { "C#面向对象编程", "用C#实现封装", "C#开发轻松入门", "初识HTML(5)+CSS(3)-2020升级版" };
+        public string[] COURSES = new string[4] { "C#面向对象编程", "用C#实现封装", "C#开发轻松入门", "初识HTML(5)+CSS(3)-升级版" };
         public List<User> GetUsersFromCSV()
         {
             List<User> users = new List<User>();
@@ -68,16 +68,16 @@ namespace StudyInfomationSpider
 
             using (StreamWriter sw = new StreamWriter("StudyResult.csv", false, System.Text.Encoding.UTF8))
             {
-                sw.Write("学号,昵称,姓名,慕课地址");
+                sw.Write("学号,姓名");
                 foreach (var item in COURSES)
                 {
-                    sw.Write($",{item},学习进度,代码练习");
+                    sw.Write($",{item},学习进度");
                 }
                 sw.WriteLine();
 
                 foreach (var s in users)
                 {
-                    sw.Write($"{s.ID},{s.NickName},{s.Name},{s.MoocUrl}");
+                    sw.Write($"{s.ID},{s.Name}");
                     foreach (var calcCourse in COURSES)
                     {
                         bool hasFind = false;
@@ -86,12 +86,12 @@ namespace StudyInfomationSpider
                             if (userCourse.CourseName == calcCourse)
                             {
                                 hasFind = true;
-                                sw.Write($",{userCourse.CourseName},{userCourse.StudyPercent},{userCourse.TestCodes}");
+                                sw.Write($",{userCourse.CourseName},{userCourse.StudyPercent}");
                             }
                         }
                         if (!hasFind)
                         {
-                            sw.Write(",无,0,0");
+                            sw.Write(",无,0");
                         }
                     }
 
