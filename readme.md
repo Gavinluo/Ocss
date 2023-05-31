@@ -8,9 +8,17 @@ https://visualstudio.microsoft.com/zh-hans/vs/   下载 Community 版本，安�
 ### 下载代码
 点击右上角Code，点击 Download Zip，下载源代码
 
-
 ### 运行代码
-双击 sln 解决方案，F5 运行或者点击 运行绿色箭头
+双击Ocss目录的 Ocss.sln 解决方案，F5 运行或者点击 运行绿色箭头
+
+### 代码目录说明
+
+- `DemoEFConnectDB` EF访问数据库Demo程序
+- `Html` 后端管理整套html模板
+- `ManageHTML` 选课系统所需要使用的html模板
+- `Ocss.Service` 选课系统的服务端
+- `Ocss.Web` 选课系统的Web
+- `StudyInfomationSpider` 慕课网学习信息爬虫
 
 
 
