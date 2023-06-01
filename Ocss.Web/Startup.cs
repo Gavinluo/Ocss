@@ -25,6 +25,7 @@ namespace Ocss.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //注册ControllerView，并添加一个认证过滤器
             services.AddControllersWithViews(option => { option.Filters.Add(typeof(AuthFilter)); });
             //开启Session
             services.AddSession();
@@ -50,13 +51,8 @@ namespace Ocss.Web
                 // 第一个路由
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=ShowLogin}/{id?}");
 
-                // 第二个路由
-                endpoints.MapControllerRoute(
-                    name: "blog",
-                    pattern: "blog/{*article}",
-                    defaults: new { controller = "Blog", action = "Article" });
             });
         }
     }

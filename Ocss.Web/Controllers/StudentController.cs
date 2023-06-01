@@ -8,14 +8,14 @@ using System.Linq;
 namespace Ocss.Web.Controllers
 {
 
-    public class StudentController : Controller
-    {
-        public IActionResult Save(Student stu)
-        {
-            using (var dbContext = new _04010018Context())
-            {
-                var dbStudent = dbContext.Student.Find(stu.StudentId);
-                if (dbStudent !=null)
+	public class StudentController : Controller
+	{
+		public IActionResult Save(Student stu)
+		{
+			/*using (var dbContext = new _04010018Context())
+			{
+				var dbStudent = dbContext.Student.Find(stu.StudentId);
+                if (dbStudent != null)
                 {
                     dbStudent.StudentName = stu.StudentName;
                     ViewData["Msg"] = "修改成功";
@@ -27,25 +27,26 @@ namespace Ocss.Web.Controllers
                 }
                 dbContext.SaveChanges();
                 return View("List", dbContext.Student.ToList());
-            }
+			}*/
+			return View("List", new List<Student>());
+		}
+		public IActionResult Edit(string id)
+		{
+			/*using (var dbContext = new _04010018Context())
+			{
+				return View(dbContext.Student.Find(id));
+			}*/
+			return View(new Student());
+		}
+		public IActionResult List()
+		{
+			var studentList = new List<Student>();
+			/*using (var dbContext = new _04010018Context())
+			{
+				studentList = dbContext.Student.Skip(10).Take(20).ToList();
+			}*/
+			return View(studentList);
 
-        }
-        public IActionResult Edit(string id)
-        {
-            using (var dbContext = new _04010018Context())
-            {
-                return View(dbContext.Student.Find(id));
-            }
-           
-        }
-        public IActionResult List()
-        {
-            var studentList = new List<Student>();
-            using (var dbContext = new _04010018Context())
-            {
-                studentList = dbContext.Student.Skip(10).Take(20).ToList();
-            }
-            return View(studentList);
-        }
-    }
+		}
+	}
 }

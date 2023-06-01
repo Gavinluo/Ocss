@@ -36,6 +36,7 @@ namespace StudyInfomationSpider.Spider
                                 UserID = usersArray[i].ID
                             });
                         }
+                        Console.WriteLine($"抓取完成{usersArray[i].Name}");
                     }
 
                 }
