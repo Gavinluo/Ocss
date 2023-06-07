@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Http
+<!-- 通过注入的方式 放一个HttpContextAccessor 用来直接访问HttpContext -->
 @inject IHttpContextAccessor HttpContextAccessor
 
 <!DOCTYPE html>
@@ -66,10 +67,9 @@
                             <a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i>修改个人信息</a>
                         </li>
                         <li>
-
                         </li>
                         <li>
-                            <a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="fa fa-power-off"></i> Logout</a>
+                            <a role="menuitem" tabindex="-1" href="@Url.Action("Logout","Login")"><i class="fa fa-power-off"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -90,40 +90,45 @@
                     <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
                 </div>
             </div>
-
+            <!-- 这里是我们的菜单组，需要通过不同的登录身份来组织菜单 -->
             <div class="nano has-scrollbar">
                 <div class="nano-content" tabindex="0" style="right: -17px;">
-                    <nav id="menu" class="nav-main" role="navigation">
-                        <ul class="nav nav-main">
-                            <li class="nav-active">
-                                <a href="@Url.Action("List","Student")">
-                                    <i class="fa fa-home" aria-hidden="true"></i>
-                                    <span>学生管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("List","Course")">
+                    @if (@HttpContextAccessor.HttpContext.Session.GetString("LoginType") == "老师")
+                    {
+                        <nav id="menu" class="nav-main" role="navigation">
+                            <ul class="nav nav-main">
+                                <li class="nav-active">
+                                    <a href="@Url.Action("List","Student")">
+                                        <i class="fa fa-home" aria-hidden="true"></i>
+                                        <span>学生管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("List","Course")">
 
-                                    <i class="fa fa-align-left" aria-hidden="true"></i>
-                                    <span>课程管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="course.html">
+                                        <i class="fa fa-align-left" aria-hidden="true"></i>
+                                        <span>课程管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="course.html">
 
-                                    <i class="fa fa-align-left" aria-hidden="true"></i>
-                                    <span>选课</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="course.html">
+                                        <i class="fa fa-align-left" aria-hidden="true"></i>
+                                        <span>选课</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="course.html">
 
-                                    <i class="fa fa-align-left" aria-hidden="true"></i>
-                                    <span>已选课程</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                                        <i class="fa fa-align-left" aria-hidden="true"></i>
+                                        <span>已选课程</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    }
+
+
                 </div>
 
                 <div class="nano-pane" style="display: none; opacity: 1; visibility: visible;"><div class="nano-slider" style="height: 850px; transform: translate(0px, 0px);"></div></div>

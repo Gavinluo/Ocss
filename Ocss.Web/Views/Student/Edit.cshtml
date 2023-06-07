@@ -20,12 +20,14 @@
                        @{
                             if (Model == null)
                             {
+                                //一定是新建，不设置只读
                                 <input type="text" name="StudentId" id="inputReadOnly" class="form-control">
 
                             }else{
+                                //一定是编辑，需要只读
                                     <input type="text" name="StudentId" value="@Model?.StudentId" readonly="readonly" id="inputReadOnly" class="form-control">
                                 }
-
+                           // @Model?.StudentId 代表可空赋值
                        }
                        
                     </div>
@@ -34,6 +36,7 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="inputDefault">学生名称</label>
                     <div class="col-md-6">
+
                         <input type="text" name="StudentName" value="@Model?.StudentName" class="form-control" id="inputDefault">
                     </div>
                 </div>

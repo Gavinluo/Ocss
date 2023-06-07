@@ -31,7 +31,8 @@ namespace Ocss.Service.Models
 
 			if (!optionsBuilder.IsConfigured)
 			{
-				//warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+				//数据库链接地址，指定数据库的地址，用户名，密码，数据库名
+
 				optionsBuilder.UseMySql("data source=rm-8vbrx1u4mnqb94o2h2o.rwlb.zhangbei.rds.aliyuncs.com;port=3306;initial catalog=04010018;user id=student;password=student;character set=utf8;", x => x.ServerVersion("8.0.25-mysql"));
 			}
 		}

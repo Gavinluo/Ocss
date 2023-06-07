@@ -1,4 +1,6 @@
+<!--为了引用一个命名空间，好让后面的程序可以直接写 Student 而不是 Ocss.Service.Models.Student-->
 @using Ocss.Service.Models
+<!--定义强类型参数 是一个 List 学生集合-->
 @model List<Student>
 
 <section role="main" class="content-body">
@@ -30,16 +32,21 @@
         @{
             if (ViewData["Msg"] != null)
             {
+                //显示一个提示信息
                 <div class="alert alert-info">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 					<strong>@ViewData["Msg"]</strong> 
 		        </div>
+
+                //需要显示一个错误信息，取Html 原型里面Copy一个显示错误信息的代码块  JSOFTAdmin-master/ui-elements-alerts.html
+
+
             }
         }
         
         <div class="panel-body">
             <div class="table-responsive">
-                
+                <!-- 高级查询分页表格代码块  JSOFTAdmin-master/tables-advanced.html -->
                 <table class="table mb-none">
                     <thead>
                         <tr>
@@ -52,15 +59,18 @@
                     </thead>
 
                     <tbody>
-
+                        
                         @for (var i = 0; i < Model.Count(); i++)
                         {
+                            // Model 代表的是 强类型List<Student>  ，循环Model
                             <tr>
+                                <!-- 通过索引下表访问 -->
                                 <td>@i</td>
                                 <td>@Model[i].StudentId</td>
                                 <td>@Model[i].StudentName</td>
                                 <td>mdo</td>
                                 <td class="actions">
+                                    <!--通过Url 参数传递的方式把学生id传递到Action ，最终地址是 /Student/Edit?Id=1 -->
                                     <a href="@Url.Action("Edit")?Id=@Model[i].StudentId"><i class="fa fa-pencil"></i></a>
                                     <a href="@Url.Action("Delete")?Id=123" class="delete-row"><i class="fa fa-trash-o"></i></a>
                                 </td>
