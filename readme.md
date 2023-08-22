@@ -6,7 +6,8 @@
 https://visualstudio.microsoft.com/zh-hans/vs/   下载 Community 版本，安装
 
 ### 下载代码
-点击右上角Code，点击 Download Zip，下载源代码
+- 点击右上角Code，点击 Download Zip，下载源代码
+- 或者使用Git客户端工具进行下载，这里就不介绍了，想学习的同学可以去搜索一下Git使用方法
 
 ### 运行代码
 双击Ocss目录的 Ocss.sln 解决方案，F5 运行或者点击 运行绿色箭头
