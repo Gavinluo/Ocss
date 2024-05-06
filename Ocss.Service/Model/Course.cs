@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Ocss.Service.Models
 {
+    /// <summary>
+    /// partial 部分类 ，可以和另外一个同名部分类自动合并到一起
+    /// </summary>
     partial class Course
     {
 
