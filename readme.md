@@ -27,11 +27,11 @@ https://visualstudio.microsoft.com/zh-hans/vs/   下载 Community 版本，安�
 VS菜单中的 工具->NuGet包管理器 ->程序包管理器控制台，安装以下内容
 
 - 在控制台中输入以下命令并按Enter键：
-- `Install-Package Microsoft.EntityFrameworkCore -Version 3.1.25`
+- `Install-Package Microsoft.EntityFrameworkCore -Version 8.0.4`
 - 等待安装完成后，输入以下命令并按Enter键：
-- `Install-Package Microsoft.EntityFrameworkCore.Tools -Version 3.1.25`
+- `Install-Package Microsoft.EntityFrameworkCore.Tools -Version 8.0.4`
 - 等待安装完成后，输入以下命令并按Enter键：
-- `Install-Package Pomelo.EntityFrameworkCore.MySql -Version 3.2.7`
+- `Install-Package Pomelo.EntityFrameworkCore.MySql -Version 8.0.2`
 - 等待安装完成后，您就可以开始使用这些包了。
 
 VS菜单中的 工具->NuGet包管理器 ->程序包管理器控制台 输入一下命令
